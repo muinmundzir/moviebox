@@ -351,6 +351,7 @@ module.exports = {
       DEFAULT: '1',
     },
     fontFamily: {
+      dm: ['DM Sans', 'sans-serif'],
       sans: [
         'ui-sans-serif',
         'system-ui',
