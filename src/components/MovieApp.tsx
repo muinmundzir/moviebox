@@ -1,7 +1,9 @@
 import React from 'react'
 
+import { Navbar } from 'components/layouts'
+
 const MovieApp = (): JSX.Element => {
-  return <div className="bg-blue-400">MovieApp</div>
+  return <Navbar />
 }
 
 export default MovieApp
