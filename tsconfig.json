@@ -3,7 +3,7 @@
     "target": "es5",
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": "src"
   },
-  "include": ["src"]
+  "include": ["src", "index.d.ts"]
 }
