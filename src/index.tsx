@@ -1,6 +1,6 @@
 import React from 'react'
 import { createRoot } from 'react-dom/client'
-import MovieApp from './components/MovieApp'
+import MovieApp from 'components/MovieApp'
 
 // import style
 import './styles/style.css'
