@@ -4,7 +4,7 @@ import { LogoMobile, Menu, Search } from 'assets/icons'
 
 export const Navbar = () => {
   return (
-    <header className="fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-4 container mx-auto">
+    <header className="z-20 fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-4 container mx-auto">
       <div className="flex items-center gap-6">
         <LogoMobile />
         <a
