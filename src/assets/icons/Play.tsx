@@ -1,8 +1,13 @@
 import React from 'react'
 
-export const Play = () => {
+interface PlayProps {
+  className?: string
+}
+
+export const Play = ({ className }: PlayProps) => {
   return (
     <svg
+      className={className}
       width="20"
       height="20"
       viewBox="0 0 20 20"
