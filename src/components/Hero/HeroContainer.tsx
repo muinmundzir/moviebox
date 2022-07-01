@@ -15,12 +15,10 @@ export const HeroContainer = () => {
 
   const getTrendingMovies = useCallback(async () => {
     const randomNum = getRandomNum()
-    const response = await getTrending().then((res) => {
-      console.log(res)
+    await getTrending().then((res) => {
       setMovies(res)
       setMovieHighlight(res[randomNum])
     })
-    console.log(response)
   }, [])
 
   useEffect(() => {
