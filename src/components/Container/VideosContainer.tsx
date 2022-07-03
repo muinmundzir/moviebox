@@ -1,7 +1,7 @@
 import { VideoCard } from 'components/Card/VideoCard'
 import React, { useCallback, useEffect, useState } from 'react'
 
-import { fetchUpcoming, fetchVideos } from 'services/fetch/getMovies'
+import { fetchUpcoming } from 'services/fetch/getMovies'
 
 export const VideosContainer = () => {
   const [movies, setMovies] = useState([])
@@ -15,7 +15,7 @@ export const VideosContainer = () => {
 
   useEffect(() => {
     getMovies()
-  }, [])
+  }, [getMovies])
 
   return (
     <>

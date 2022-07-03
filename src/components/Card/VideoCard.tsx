@@ -18,7 +18,7 @@ export const VideoCard = ({ id, name, backdropPath }: VideoCardProps) => {
 
   useEffect(() => {
     getVideos(id)
-  }, [])
+  }, [getVideos, id])
 
   return (
     <>

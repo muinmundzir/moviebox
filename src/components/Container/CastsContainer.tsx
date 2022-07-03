@@ -11,7 +11,7 @@ export const CastsContainer = () => {
 
   useEffect(() => {
     getCasts()
-  }, [])
+  }, [getCasts])
 
   return (
     <>
