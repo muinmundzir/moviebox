@@ -1,18 +1,22 @@
 import React from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Layout } from 'components/layouts'
-import { HeroContainer } from 'components'
-import { List } from './Container/List'
+import { HomePage } from 'pages/HomePage'
+import { DetailPage } from 'pages/DetailPage'
+import { ScrollToTop } from 'services/hooks/ScrollToTop'
 
 const MovieApp = () => {
   return (
-    <Layout>
-      <HeroContainer />
-      <List header="Featured Movie" movieType="featured" listType="movies" />
-      <List header="New Arrival" movieType="upcoming" listType="movies" />
-      <List header="Exclusive Video" listType="videos" />
-      <List header="Featured Casts" listType="casts" />
-    </Layout>
+    <BrowserRouter>
+      <ScrollToTop />
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="movie/:id" element={<DetailPage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   )
 }
 

@@ -7,16 +7,11 @@ import { CastsContainer } from './CastsContainer'
 
 interface ListPropsTypes {
   header: string
-  movieType?: 'featured' | 'upcoming'
   listType: 'movies' | 'videos' | 'casts'
+  children: React.ReactNode
 }
 
-export const List = ({ header, movieType, listType }: ListPropsTypes) => {
-  const renderElement = listType === 'movies' ? (
-    <MoviesContainer movieType={movieType} />
-  ) : listType === 'videos' ? (
-    <VideosContainer />
-  ) : <CastsContainer />
+export const List = ({ header, listType, children }: ListPropsTypes) => {
 
   return (
     <section className="container mx-auto px-6 mb-20">
@@ -32,7 +27,7 @@ export const List = ({ header, movieType, listType }: ListPropsTypes) => {
 
       {/* Cards container */}
       <div className={`flex gap-6 ${listType === 'videos' ? 'md:gap-6' : 'md:gap-20'} flex-nowrap overflow-x-scroll no-scrollbar`}>
-        {renderElement}
+        {children}
       </div>
       {/* Cards container end */}
     </section>

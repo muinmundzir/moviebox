@@ -2,9 +2,11 @@ import React, { useEffect, useState } from 'react'
 
 import { Heart } from 'assets/icons'
 import { genreWithNameTypes } from 'services/types/MovieTypes'
+import { Link } from 'react-router-dom'
 
 interface MovieCardProps {
-  originalTitle: string
+  id: number
+  title: string
   relesaseDate: string
   posterPath: string
   movieGenres: genreWithNameTypes[]
@@ -15,10 +17,12 @@ interface MovieCardProps {
 }
 
 export const MovieCard = ({
+  id,
   movieGenres,
   relesaseDate,
-  originalTitle,
-  posterPath,productionCountry
+  title,
+  posterPath,
+  productionCountry,
 }: MovieCardProps) => {
   const [genres, setGenres] = useState([])
 
@@ -27,6 +31,7 @@ export const MovieCard = ({
     setGenres(joinGenres)
   }
 
+  const splitTitle = title?.replace(/\s+/g, '-').toLowerCase()
   const getReleaseYear = relesaseDate.substring(0, 4)
   const getProductionCountry = productionCountry[0].name
 
@@ -35,7 +40,10 @@ export const MovieCard = ({
   }, [])
 
   return (
-    <div className="relative flex-[0_0_auto] flex flex-col gap-3 max-w-[250px]">
+    <Link
+      className="group relative flex-[0_0_auto] flex flex-col gap-3 max-w-[250px] hover:-translate-y-2 hover:cursor-pointer hover:border-b-2 hover:border-rose-700 duration-100 ease-out"
+      to={`../movie/${id}/${splitTitle}`}
+    >
       <img
         className="w-full h-[370px]"
         src={`https://image.tmdb.org/t/p/original/${posterPath}`}
@@ -46,8 +54,12 @@ export const MovieCard = ({
           <Heart />
         </button>
       </div>
-      <p className="font-bold text-xs text-gray-400">{getProductionCountry}, {getReleaseYear}</p>
-      <h3 className="font-bold text-lg">{originalTitle}</h3>
+      <p className="font-bold text-xs text-gray-400">
+        {getProductionCountry}, {getReleaseYear}
+      </p>
+      <h3 className="font-bold text-lg group-hover:text-rose-700 duration-150">
+        {title}
+      </h3>
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
           <img src="/images/imdb.jpg" alt="" />
@@ -61,6 +73,6 @@ export const MovieCard = ({
       <span className="font-bold text-xs text-gray-400">
         {genres.join(', ')}
       </span>
-    </div>
+    </Link>
   )
 }

@@ -2,27 +2,25 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import Hero from './Hero'
 
-import { getTrending } from 'services/fetch/getMovies'
+import { fetchTrending } from 'services/fetch/getMovies'
 import { MovieTypes } from 'services/types/MovieTypes'
 
 export const HeroContainer = () => {
-  const [movies, setMovies] = useState<MovieTypes[]>([])
   const [movieHighlight, setMovieHighlight] = useState<MovieTypes>(null)
 
   const getRandomNum = () => {
     return Math.floor(Math.random() * 20)
   }
 
-  const getTrendingMovies = useCallback(async () => {
+  const fetchTrendingMovies = useCallback(async () => {
     const randomNum = getRandomNum()
-    await getTrending().then((res) => {
-      setMovies(res)
+    await fetchTrending().then((res) => {
       setMovieHighlight(res[randomNum])
     })
   }, [])
 
   useEffect(() => {
-    getTrendingMovies()
+    fetchTrendingMovies()
   }, [])
 
   return (
