@@ -8,11 +8,10 @@ export const Navbar = () => {
     <header className="z-20 fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-4 container mx-auto">
       <Link
         to="/"
-        className="hidden md:block font-dm font-bold text-2xl text-white"
       >
         <div className="flex items-center gap-6">
           <LogoMobile />
-          MovieBox
+          <span className="hidden md:block font-dm font-bold text-2xl text-white">MovieBox</span>
         </div>
       </Link>
       <div className="relative">
