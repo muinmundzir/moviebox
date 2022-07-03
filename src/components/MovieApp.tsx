@@ -13,7 +13,7 @@ const MovieApp = () => {
       <Layout>
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="movie/:id" element={<DetailPage />} />
+          <Route path="movie/:id/*" element={<DetailPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
