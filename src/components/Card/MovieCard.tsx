@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 
 import { Heart } from 'assets/icons'
 import { genreWithNameTypes } from 'services/types/MovieTypes'
@@ -26,10 +26,10 @@ export const MovieCard = ({
 }: MovieCardProps) => {
   const [genres, setGenres] = useState([])
 
-  const getGenres = () => {
+  const getGenres = useCallback(() => {
     const joinGenres = movieGenres?.map((genre) => genre.name)
     setGenres(joinGenres)
-  }
+  }, [movieGenres])
 
   const splitTitle = title?.replace(/\s+/g, '-').toLowerCase()
   const getReleaseYear = relesaseDate.substring(0, 4)
@@ -37,7 +37,7 @@ export const MovieCard = ({
 
   useEffect(() => {
     getGenres()
-  }, [])
+  }, [getGenres])
 
   return (
     <Link

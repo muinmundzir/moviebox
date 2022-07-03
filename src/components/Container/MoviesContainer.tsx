@@ -50,7 +50,4 @@ export const MoviesContainer = ({
 
   return <>{movieCard}</>
 }
-function fetcBatchDetails(ids: number[]) {
-  throw new Error('Function not implemented.')
-}
 

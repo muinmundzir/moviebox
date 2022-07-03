@@ -1,7 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
-import { Plus } from 'assets/icons'
 import { List, MovieInfo } from 'components'
 import { fetchDetails, fetchSimilar } from 'services/fetch/getMovies'
 import { MovieDetails, MovieTypes } from 'services/types/MovieTypes'

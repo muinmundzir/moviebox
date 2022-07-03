@@ -1,9 +1,6 @@
 import React from 'react'
 
 import { ChevronRight } from 'assets/icons'
-import { MoviesContainer } from 'components/Container/MoviesContainer'
-import { VideosContainer } from './VideosContainer'
-import { CastsContainer } from './CastsContainer'
 
 interface ListPropsTypes {
   header: string

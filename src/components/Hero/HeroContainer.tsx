@@ -21,7 +21,7 @@ export const HeroContainer = () => {
 
   useEffect(() => {
     fetchTrendingMovies()
-  }, [])
+  }, [fetchTrendingMovies])
 
   return (
     <>
