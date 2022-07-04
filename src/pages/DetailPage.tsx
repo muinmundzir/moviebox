@@ -39,6 +39,7 @@ export const DetailPage = () => {
             backdropPath={movie.backdrop_path}
             title={movie.title ? movie.title : movie.original_title}
             overview={movie.overview}
+            posterPath={movie.poster_path}
           />
           <List header="Similar Movies" listType="movies">
             {similarMovies && <MoviesContainer moviesProps={similarMovies} />}
