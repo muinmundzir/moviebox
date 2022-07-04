@@ -25,11 +25,13 @@ const Hero = ({
     <section
       style={{
         backgroundImage: `url(https://image.tmdb.org/t/p/original/${heroImage})`,
+        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+        backgroundBlendMode: 'darken',
       }}
       className="h-[748px] bg-center bg-cover bg-no-repeat mb-16 md:mb-[70px] md:h-[600px] md:bg-top md:bg-cover"
     >
       <article className="container mx-auto pt-[420px] pl-6 md:pt-48 text-white">
-        <h1 className="font-bold text-5xl mb-4 max-h-28 md:max-w-md overflow-y-hidden text-clip">
+        <h1 className="font-bold text-5xl mb-4 max-h-32 md:max-w-md text-clip">
           {title ? title : originalTitle}
         </h1>
         <div className="flex gap-9 mb-4">
