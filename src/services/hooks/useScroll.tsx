@@ -16,7 +16,7 @@ export const useScroll = () => {
     if (isMobile) {
       return window.scrollY >= 748 ? setScroll(true) : setScroll(false)
     }
-    return window.scrollY >= 600 ? setScroll(true) : setScroll(false)
+    return window.scrollY >= 580 ? setScroll(true) : setScroll(false)
   }, [isMobile, detailPage])
 
   useEffect(() => {
