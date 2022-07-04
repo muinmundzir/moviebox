@@ -1,11 +1,13 @@
 import React from 'react'
-
-import { LogoMobile, Menu, Search } from 'assets/icons'
 import { Link } from 'react-router-dom'
 
+import { LogoMobile, Menu, Search } from 'assets/icons'
+import { useScroll } from 'services/hooks/useScroll'
+
 export const Navbar = () => {
+  const scroll = useScroll()
   return (
-    <header className="z-20 fixed top-0 left-0 right-0 flex justify-between items-center px-6 py-4 container mx-auto">
+    <header className={`z-20 fixed top-0 left-0 right-0 ${scroll ? 'bg-rose-600' : ''}  flex justify-between items-center px-6 py-4 container mx-auto duration-200 ease-out`}>
       <Link
         to="/"
       >
