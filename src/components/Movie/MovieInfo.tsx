@@ -25,7 +25,7 @@ export const MovieInfo = ({backdropPath, title, overview, posterPath}: MovieInfo
         }}
         className="h-[748px] bg-center bg-cover bg-no-repeat mb-16 md:mb-[70px] md:h-[351px] md:bg-cover md:bg-center"
       ></section>
-      <section className="container mx-auto grid grid-rows-2 md:grid-cols-2 md:mb-16">
+      <section className="container mx-auto grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 md:mb-16">
         <article className="px-6 mb-16 md:mb-0">
           <h1 className="font-bold text-5xl mb-6">{title}</h1>
           <div className="flex gap-9 items-center mb-6">
