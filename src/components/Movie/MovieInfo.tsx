@@ -3,6 +3,7 @@ import React from 'react'
 import { Plus } from 'assets/icons'
 
 import useIsMobile from 'services/hooks/useIsMobile'
+import { Button } from 'components'
 
 interface MovieInfoProps {
   backdropPath: string
@@ -40,16 +41,9 @@ export const MovieInfo = ({backdropPath, title, overview, posterPath}: MovieInfo
           <p className="font-medium text-sm">{overview}</p>
         </article>
         <div className="px-6 space-y-4">
-          <button className="rounded-md flex items-center gap-[10px] bg-rose-700 font-bold text-white text-lg md:text-2xl py-3 md:py-5 md:px-4 w-full md:w-[486px] justify-center mx-auto">
-            <span className="-mt-[2px]">Buy $21.22</span>
-          </button>
-          <button className="rounded-md flex items-center gap-[10px] bg-gray-100 font-bold text-black text-lg md:text-2xl py-3 md:py-5 md:px-4 w-full md:w-[486px] justify-center mx-auto">
-            <span className="-mt-[2px]">Rent $5.2</span>
-          </button>
-          <button className="rounded-md flex items-center gap-[10px] bg-gray-100 font-bold text-black text-lg md:text-2xl py-3 md:py-5 md:px-4 w-full md:w-[486px] justify-center mx-auto">
-            <Plus />
-            <span className="-mt-[2px]">Add to list</span>
-          </button>
+          <Button color="primary" size="lg" text="Buy $21.22" customClass="justify-center mx-auto" />
+          <Button color="sub" size="lg" text="Rent $5.2" customClass="justify-center mx-auto" />
+          <Button color="sub" size="lg" text="Add to list" icon={<Plus />} customClass="justify-center mx-auto" />
         </div>
       </section>
     </>

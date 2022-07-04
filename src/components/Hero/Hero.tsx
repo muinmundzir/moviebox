@@ -2,6 +2,7 @@ import React from 'react'
 
 import { Play } from 'assets/icons'
 import useIsMobile from 'services/hooks/useIsMobile'
+import { Button } from 'components'
 
 interface HeroProps {
   title: string
@@ -47,10 +48,7 @@ const Hero = ({
         <p className="max-w-[290px] mb-6 font-medium text-sm max-h-20 overflow-y-hidden text-ellipsis">
           {overview}
         </p>
-        <button className="rounded-md flex items-center gap-[10px] bg-rose-700 font-bold text-sm py-[6px] px-4">
-          <Play />
-          <span className="-mt-[2px]">WATCH TRAILER</span>
-        </button>
+        <Button color="primary" size="base" icon={<Play />} text="WATCH TRAILER" />
       </article>
     </section>
   )
