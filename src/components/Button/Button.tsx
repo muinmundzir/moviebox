@@ -10,8 +10,8 @@ interface ButtonProps {
 }
 
 export const Button = ({ onClick, customClass, text, icon, size, color }: ButtonProps) => {
-  const buttonLarge = 'font-bold text-lg md:text-2xl py-3 md:py-5 md:px-4 w-full md:w-[486px]'
-  const buttonBase = 'font-bold text-sm py-[6px] px-4'
+  const buttonLarge = 'font-bold text-lg md:text-2xl py-3 md:py-5 md:px-4 w-full md:w-[486px] shadow-md'
+  const buttonBase = 'font-bold text-sm py-[6px] px-4 shadow'
   const buttonSize = size === 'lg' ? buttonLarge : buttonBase
 
   const primary = 'bg-rose-700 text-white'
