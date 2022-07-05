@@ -2,10 +2,9 @@ import React, { useCallback, useEffect, useState } from 'react'
 
 import { MovieCard } from 'components/Card/MovieCard'
 import { MovieDetails, MovieTypes } from 'services/types/MovieTypes'
+import { ContentLoader } from 'components/ContentLoader'
 
-import {
-  fetchBatchDetails,
-} from 'services/fetch/getMovies'
+import { fetchBatchDetails } from 'services/fetch/getMovies'
 
 interface MovieContainerProps {
   moviesProps?: MovieTypes[]
@@ -15,15 +14,18 @@ export const MoviesContainer = ({
   moviesProps,
 }: MovieContainerProps): JSX.Element => {
   const [movies, setMovies] = useState<MovieDetails[]>([])
+  const [loading, setLoading] = useState(true)
 
   const getMovieDetails = async (ids: number[]) => {
-    const result = await fetchBatchDetails(ids)
-    setMovies(result)
+    await fetchBatchDetails(ids).then((res) => {
+      setMovies(res)
+      setLoading(false)
+    })
   }
 
-  const getMovies = useCallback( () => {
+  const getMovies = useCallback(() => {
     const ids = []
-    for(const movie of moviesProps){
+    for (const movie of moviesProps) {
       ids.push(movie.id)
     }
 
@@ -48,6 +50,5 @@ export const MoviesContainer = ({
     )
   })
 
-  return <>{movieCard}</>
+  return <>{loading ? <ContentLoader /> : movieCard}</>
 }
-

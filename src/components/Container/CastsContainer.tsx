@@ -1,12 +1,17 @@
 import { CastCard } from 'components/Card/CastCard'
+import { ContentLoader } from 'components/ContentLoader'
 import React, { useCallback, useEffect, useState } from 'react'
 import { fetchCasts } from 'services/fetch/getPeople'
 
 export const CastsContainer = () => {
   const [casts, setCasts] = useState([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const getCasts = useCallback(async () => {
-    await fetchCasts().then((res) => setCasts(() => res))
+    await fetchCasts().then((res) => {
+      setCasts(res)
+      setLoading(false)
+    })
   }, [])
 
   useEffect(() => {
@@ -15,15 +20,19 @@ export const CastsContainer = () => {
 
   return (
     <>
-      {casts.map((cast, index) => {
-        return (
-          <CastCard
-            key={index}
-            name={cast.name}
-            profilePath={cast.profilePath}
-          />
-        )
-      })}
+      {loading ? (
+        <ContentLoader />
+      ) : (
+        casts.map((cast, index) => {
+          return (
+            <CastCard
+              key={index}
+              name={cast.name}
+              profilePath={cast.profilePath}
+            />
+          )
+        })
+      )}
     </>
   )
 }
