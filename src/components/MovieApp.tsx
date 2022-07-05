@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Layout } from 'components/layouts'
 import { HomePage } from 'pages/HomePage'
 import { DetailPage } from 'pages/DetailPage'
-import { ScrollToTop } from 'services/hooks/ScrollToTop'
+import { ScrollToTop } from 'services/utilities/ScrollToTop'
 
 const MovieApp = () => {
   return (
