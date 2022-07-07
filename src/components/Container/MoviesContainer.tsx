@@ -14,7 +14,7 @@ export const MoviesContainer = ({
   moviesProps,
 }: MovieContainerProps): JSX.Element => {
   const [movies, setMovies] = useState<MovieDetails[]>([])
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(false)
 
   const getMovieDetails = async (ids: number[]) => {
     await fetchBatchDetails(ids).then((res) => {
@@ -33,6 +33,7 @@ export const MoviesContainer = ({
   }, [moviesProps])
 
   useEffect(() => {
+    setLoading(true)
     getMovies()
   }, [getMovies])
 
