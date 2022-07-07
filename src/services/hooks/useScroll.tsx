@@ -8,8 +8,12 @@ export const useScroll = () => {
   const isMobile = useIsMobile()
   const location = useLocation()
   const detailPage =  location.pathname.includes('/movie/')
+  const searchPage = location.pathname.includes('/search')
 
   const changeBackground = useCallback(() => {
+    if(searchPage) {
+      return window.scrollY >= 0 ? setScroll(true) : setScroll(false)
+    }
     if(detailPage) {
       return window.scrollY >= 351 ? setScroll(true) : setScroll(false)
     }
@@ -17,7 +21,7 @@ export const useScroll = () => {
       return window.scrollY >= 748 ? setScroll(true) : setScroll(false)
     }
     return window.scrollY >= 580 ? setScroll(true) : setScroll(false)
-  }, [isMobile, detailPage])
+  }, [isMobile, detailPage, searchPage])
 
   useEffect(() => {
     changeBackground()  
