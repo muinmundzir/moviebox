@@ -10,7 +10,7 @@ interface MovieCardProps {
   relesaseDate: string
   posterPath: string
   movieGenres: genreWithNameTypes[]
-  productionCountry: {
+  productionCountry?: {
     iso_3166_1: string
     name: string
   }[]
@@ -23,7 +23,7 @@ export const MovieCard = ({
   title,
   posterPath,
   productionCountry,
-}: MovieCardProps) => {
+}: Partial<MovieCardProps>) => {
   const [genres, setGenres] = useState([])
 
   const getGenres = useCallback(() => {
@@ -33,7 +33,7 @@ export const MovieCard = ({
 
   const splitTitle = title?.replace(/\s+/g, '-').toLowerCase()
   const getReleaseYear = relesaseDate.substring(0, 4)
-  const getProductionCountry = productionCountry[0].name
+  const getProductionCountry = productionCountry[0]?.name ? productionCountry[0]?.name : '-'
 
   useEffect(() => {
     getGenres()
@@ -41,7 +41,7 @@ export const MovieCard = ({
 
   return (
     <Link
-      className="group relative flex-[0_0_auto] flex flex-col gap-3 max-w-[250px] hover:-translate-y-2 hover:cursor-pointer hover:border-b-2 hover:border-rose-700 duration-100 ease-out"
+      className="group relative flex-[0_0_auto] flex flex-col gap-3 w-[250px] hover:-translate-y-2 hover:cursor-pointer hover:border-b-2 hover:border-rose-700 duration-100 ease-out"
       to={`../movie/${id}/${splitTitle}`}
     >
       <img
