@@ -1,8 +1,14 @@
 import React from 'react'
 
-export const Search = ({className}) => {
+interface SearchProps {
+  className: string
+  onClick: () => void
+}
+
+export const Search = ({ className, onClick }: SearchProps) => {
   return (
     <svg
+      onClick={onClick}
       className={className}
       width="16"
       height="16"
