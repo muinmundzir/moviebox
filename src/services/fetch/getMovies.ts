@@ -59,3 +59,10 @@ export const fetchSimilar = async (id: number) => {
   const { results } = axiosResponse
   return results
 }
+
+export const fetchQueryMovie = async (query: string) => {
+  const url = `search/movie?api_key=${process.env.REACT_APP_AUTH_KEY}&language=en-US&query=${query}&page=1&include_adult=false`
+  const { data: axiosResponse } = await axios.get(`${BASE_URL}/${url}`)
+  const { results } = axiosResponse
+  return results
+}
