@@ -9,7 +9,7 @@ export const SearchPage = () => {
   return (
     <section className="container mx-auto px-6 mt-28 mb-20">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="font-bold text-2xl">Search Result of: "{params.query.replace("-", "")}"</h2>
+        <h2 className="font-bold text-2xl">Search Result of: "{params.query.replace("-", " ")}"</h2>
       </div>
 
       {/* Cards container */}
