@@ -1,11 +1,33 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 import { LogoMobile, Menu, Search } from 'assets/icons'
+
 import { useScroll } from 'services/hooks/useScroll'
 
+
 export const Navbar = () => {
+  const [query, setQuery] = useState<string>('')
+  const navigate = useNavigate()
   const scroll = useScroll()
+
+  const splitQuery = query.replace(" ", "-")
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.currentTarget
+
+    setQuery(value)
+  }
+
+  const onHandleSearch = () => {
+    navigate(`../search/${splitQuery}`, {replace: true})
+  }
+
+  const onKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if(e.key === 'Enter') {
+      navigate(`../search/${splitQuery}`, {replace: true})
+    }
+  }
+
   return (
     <header
       className={`z-20 fixed top-0 left-0 right-0 ${
@@ -29,8 +51,13 @@ export const Navbar = () => {
             name="search"
             id="search"
             placeholder="Search Movie"
+            onChange={handleChange}
+            onKeyDown={onKeyDownHandler}
           />
-          <Search className={`absolute top-3 right-3 w-4 h-4 aspect-square`} />
+          <Search
+            className={`absolute top-3 right-3 w-4 h-4 aspect-square cursor-pointer`}
+            onClick={onHandleSearch}
+          />
         </div>
         <div className="flex items-center gap-6">
           <a
