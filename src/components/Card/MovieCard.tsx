@@ -1,8 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 import { Heart } from 'assets/icons'
+import NotFound from 'assets/images/not-found.png'
+
 import { genreWithNameTypes } from 'services/types/MovieTypes'
-import { Link } from 'react-router-dom'
 
 interface MovieCardProps {
   id: number
@@ -34,6 +36,7 @@ export const MovieCard = ({
   const splitTitle = title?.replace(/\s+/g, '-').toLowerCase()
   const getReleaseYear = relesaseDate.substring(0, 4)
   const getProductionCountry = productionCountry[0]?.name ? productionCountry[0]?.name : '-'
+  const posterSource = `https://image.tmdb.org/t/p/original/${posterPath}`
 
   useEffect(() => {
     getGenres()
@@ -46,7 +49,7 @@ export const MovieCard = ({
     >
       <img
         className="w-full h-[370px]"
-        src={`https://image.tmdb.org/t/p/original/${posterPath}`}
+        src={posterPath ? posterSource : NotFound}
         alt=""
       />
       <div className="absolute pt-5 px-4 left-0 right-0 flex items-center">
