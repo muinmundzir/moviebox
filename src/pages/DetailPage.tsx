@@ -2,22 +2,23 @@ import React, { useCallback, useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 import { List, MovieInfo } from 'components'
-import { fetchDetails, fetchSimilar } from 'services/fetch/getMovies'
-import { MovieDetails, MovieTypes } from 'services/types/MovieTypes'
 import { MoviesContainer } from 'components/Container/MoviesContainer'
 
-export const DetailPage = () => {
+import { fetchDetails, fetchSimilar } from 'services/fetch/getMovies'
+import { MovieDetails, MovieTypes } from 'services/types/MovieTypes'
+
+export const DetailPage = (): JSX.Element => {
   const [movie, setMovie] = useState<MovieDetails | null>(null)
   const [similarMovies, setSimilarMovies] = useState<MovieTypes[]>(null)
   const params = useParams()
 
   const getDetails = useCallback(async (id: number) => {
-    await fetchDetails(id).then((res) => setMovie(res))
+    await fetchDetails(id).then((res: MovieDetails) => setMovie(res))
   }, [])
 
   const getSimilar = useCallback(async (id: number) => {
     await fetchSimilar(id).then((res) => {
-      const featured = res.splice(0, 6)
+      const featured: MovieTypes[] = res.splice(0, 6)
       const similarMovies = []
       for (const resp of featured) {
         similarMovies.push(resp)
