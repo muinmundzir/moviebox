@@ -11,7 +11,7 @@ interface ListPropsTypes {
 export const List = ({ header, listType, children }: ListPropsTypes) => {
 
   return (
-    <section className="container mx-auto px-6 mb-20">
+    <section className="container mx-auto px-3 md:px-6 mb-20">
       <div className="flex justify-between items-center mb-4">
         <h2 className="font-bold text-2xl">{header}</h2>
         <div className="flex gap-4 items-center">

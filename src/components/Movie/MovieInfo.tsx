@@ -26,7 +26,7 @@ export const MovieInfo = ({backdropPath, title, overview, posterPath}: MovieInfo
         className="h-[748px] bg-center bg-cover bg-no-repeat mb-16 md:mb-[70px] md:h-[351px] md:bg-cover md:bg-center"
       ></section>
       <section className="container mx-auto grid grid-rows-2 md:grid-rows-1 md:grid-cols-2 md:mb-16">
-        <article className="px-6 mb-16 md:mb-0">
+        <article className="px-3 md:px-6 mb-16 md:mb-0">
           <h1 className="font-bold text-5xl mb-6">{title}</h1>
           <div className="flex gap-9 items-center mb-6">
             <div className="flex items-center gap-3">
@@ -40,7 +40,7 @@ export const MovieInfo = ({backdropPath, title, overview, posterPath}: MovieInfo
           </div>
           <p className="font-medium text-sm">{overview}</p>
         </article>
-        <div className="px-6 space-y-4">
+        <div className="px-3 md:px-6 space-y-4">
           <Button color="primary" size="lg" text="Buy $21.22" customClass="justify-center mx-auto" />
           <Button color="sub" size="lg" text="Rent $5.2" customClass="justify-center mx-auto" />
           <Button color="sub" size="lg" text="Add to list" icon={<Plus />} customClass="justify-center mx-auto" />

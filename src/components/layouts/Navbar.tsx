@@ -41,7 +41,7 @@ export const Navbar = () => {
         scroll ? 'bg-rose-600' : ''
       }  duration-200 ease-out`}
     >
-      <div className="flex justify-between items-center px-6 py-4 container mx-auto">
+      <div className="flex justify-between items-center px-3 md:px-6 py-4 container mx-auto">
         <Link to="/">
           <div className="flex items-center gap-6">
             <LogoMobile />
@@ -52,7 +52,7 @@ export const Navbar = () => {
         </Link>
         <div className="relative">
           <input
-            className="px-3 py-2 rounded-md bg-transparent border-2 ring-gray-300 border-gray-300 md:w-80 placeholder:text-gray-300
+            className="px-3 py-2 rounded-md bg-transparent border-2 ring-gray-300 border-gray-300 md:w-80 placeholder:text-gray-300 w-[220px]
           lg:w-[525px] placeholder:font-dm placeholder:font-normal text-base text-gray-300"
             type="text"
             name="search"

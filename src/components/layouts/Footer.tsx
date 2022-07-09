@@ -8,7 +8,7 @@ export const Footer = () => {
     { link: 'press', name: 'Press Room' },
   ]
   return (
-    <footer className="container mx-auto px-6">
+    <footer className="container mx-auto px-3 md:px-6">
       <section className="">
         <div className="flex gap-6 md:justify-center items-center mb-9">
           <Facebook />
