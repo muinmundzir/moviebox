@@ -13,7 +13,7 @@ export const SearchPage = () => {
       </div>
 
       {/* Cards container */}
-      <div className={`flex flex-wrap gap-6 md:gap-16 justify-center sm:justify-between md:justify-around`}>
+      <div className={`flex flex-wrap gap-6 md:gap-16 justify-center sm:justify-between md:justify-start`}>
         <SearchMoviesContainer />
       </div>
       {/* Cards container end */}
