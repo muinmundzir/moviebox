@@ -23,7 +23,7 @@ export const VideoCard = ({ id, name, backdropPath }: VideoCardProps) => {
   return (
     <>
       {videos && (
-        <div className="relative flex-[0_0_auto] aspect-video md:w-[450px]">
+        <div className="relative flex-[0_0_auto] aspect-video w-full md:w-[450px]">
           <img
             className="mb-3"
             src={`https://image.tmdb.org/t/p/original/${backdropPath}`}
