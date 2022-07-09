@@ -5,13 +5,12 @@ import { LogoMobile, Menu, Search } from 'assets/icons'
 
 import { useScroll } from 'services/hooks/useScroll'
 
-
 export const Navbar = () => {
   const [query, setQuery] = useState<string>('')
   const navigate = useNavigate()
   const scroll = useScroll()
 
-  const splitQuery = query.replace(" ", "-")
+  const splitQuery = query.replace(' ', '-')
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.currentTarget
 
@@ -19,12 +18,19 @@ export const Navbar = () => {
   }
 
   const onHandleSearch = () => {
-    navigate(`../search/${splitQuery}`, {replace: true})
+    if (query) {
+      navigate(`../search/${splitQuery}`, { replace: true })
+    } else {
+      navigate(`../`)
+    }
   }
 
   const onKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if(e.key === 'Enter') {
-      navigate(`../search/${splitQuery}`, {replace: true})
+    if (e.key === 'Enter') {
+      if (query) {
+        navigate(`../search/${splitQuery}`, { replace: true })
+      }
+      navigate(`../`)
     }
   }
 
