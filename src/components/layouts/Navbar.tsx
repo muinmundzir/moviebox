@@ -18,7 +18,7 @@ export const Navbar = () => {
   }
 
   const onHandleSearch = () => {
-    if (query) {
+    if (query !== "") {
       navigate(`../search/${splitQuery}`, { replace: true })
     } else {
       navigate(`../`)
@@ -27,10 +27,11 @@ export const Navbar = () => {
 
   const onKeyDownHandler = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === 'Enter') {
-      if (query) {
+      if (query !== "") {
         navigate(`../search/${splitQuery}`, { replace: true })
+      } else {
+        navigate(`../`)
       }
-      navigate(`../`)
     }
   }
 
