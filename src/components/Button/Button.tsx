@@ -14,14 +14,14 @@ export const Button = ({ onClick, customClass, text, icon, size, color }: Button
   const buttonBase = 'font-bold text-sm py-[6px] px-4 shadow'
   const buttonSize = size === 'lg' ? buttonLarge : buttonBase
 
-  const primary = 'bg-rose-700 text-white'
-  const sub = 'bg-gray-100 text-black'
+  const primary = 'bg-rose-700 text-white hover:bg-rose-700/80'
+  const sub = 'bg-gray-100 text-black hover:bg-gray-100/60'
   const buttonColor = color === 'primary' ? primary : sub
 
   return (
     <button
       onClick={onClick}
-      className={`rounded-md flex items-center gap-[10px] ${buttonColor} ${buttonSize} ${customClass}`}
+      className={`rounded-md flex items-center gap-[10px] duration-100 transition ease-out ${buttonColor} ${buttonSize} ${customClass}`}
     >
       {icon}
       <span className="-mt-[2px]">{text}</span>
